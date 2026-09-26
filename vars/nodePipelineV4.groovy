@@ -1,8 +1,8 @@
 def call(Closure body) {
     def config = [:]
+    
     body.delegate = config
     body.resolveStrategy = Closure.DELEGATE_FIRST
-
     body()
 
     echo "AppName: ${config.appName}"
