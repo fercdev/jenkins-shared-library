@@ -1,6 +1,10 @@
-def call(Map config = [:]) {
+def call() {
     pipeline {
-        agent any
+        agent {
+            docker {
+                image 'node:24-alpine'
+            }
+        }
 
         stages {
             stage("Checkout scm") {
