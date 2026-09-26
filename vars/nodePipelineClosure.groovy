@@ -8,14 +8,15 @@ def call(Closure body) {
         install: [
             command: 'npm ci'
         ],
+        
         lint: [
             enabled: false,
-            command: 'npm run lint',
+            command: 'npm run lint'
         ],
 
         test: [
             command: 'npm test'
-        ],
+        ]
     ]
     
     // Configuracion
