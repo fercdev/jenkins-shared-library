@@ -7,12 +7,6 @@ def call() {
         }
 
         stages {
-            stage("Checkout scm") {
-               steps {
-                checkout scm
-               }
-            }
-
             stage ('Npm install') {
                 steps {
                     sh "npm ci"
