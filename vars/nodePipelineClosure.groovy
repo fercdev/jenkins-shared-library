@@ -1,23 +1,25 @@
 def call(Closure body) {
     
     // Valores por defecto
-    def config = [
-        appName: 'nodejs-project',
-        nodeImage: 'node:24-alpine',
+    // def config = [
+    //     appName: 'nodejs-project',
+    //     nodeImage: 'node:24-alpine',
         
-        install: [
-            command: 'npm ci'
-        ],
-        
-        lint: [
-            enabled: false,
-            command: 'npm run lint'
-        ],
+    //     install: [
+    //         command: 'npm ci'
+    //     ],
 
-        test: [
-            command: 'npm test'
-        ]
-    ]
+    //     lint: [
+    //         enabled: false,
+    //         command: 'npm run lint'
+    //     ],
+
+    //     test: [
+    //         command: 'npm test'
+    //     ]
+    // ]
+
+    def config = new NodePipelineConfig()
     
     // Configuracion
     body.delegate = config
@@ -27,7 +29,7 @@ def call(Closure body) {
     pipeline {
         agent {
             docker {
-                image config.nodeImage
+                image config.docker.image
             }
         }
 
